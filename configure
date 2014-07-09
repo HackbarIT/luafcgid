@@ -15,22 +15,26 @@ fi
 if [ ${UNAME} = "FreeBSD" ]; then
 	echo "Configuring for FreeBSD..."
 	cp -vf Makefile.freebsd Makefile
+	exit 0
 fi
 
 # Ubuntu
 if [ ${DISTRO} = "Ubuntu" ]; then
 	echo "Configuring for Ubuntu..."
 	cp -vf Makefile.ubuntu Makefile
+	exit 0
 fi
 
 # Debian Linux
 if [ -f /etc/debian_version ]; then
 	echo "Configuring for Debian..."
 	cp -vf Makefile.debian Makefile
+	exit 0
 fi
 
 # fallback Makefile
 if [ ! -f Makefile ]; then
 	echo "Configuring for generic..."
 	cp -vf Makefile.generic Makefile
+	exit 0
 fi
