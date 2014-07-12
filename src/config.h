@@ -6,7 +6,6 @@
 #define HTTP_STATUS "200 OK"
 #define HTTP_CONTENTTYPE "text/html"
 #define HANDLER "main"
-#define HEADERS "X-Powered-By: Lua\r\n"
 
 struct hook_struct {
 	int count;
