@@ -32,7 +32,7 @@ headersize = 64
 bodysize = 1024
 
 -- custom headers to add to all requests
-headers = "X-Powered-By: Lua\r\n"
+headers = "X-Powered-By: luafcgid https://github.com/HackbarIT/luafcgid \r\n"
 
 -- handler function name
 handler = "main"

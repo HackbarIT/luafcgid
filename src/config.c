@@ -24,8 +24,6 @@ config_t* config_load(const char* fn) {
     cf->bodysize = 1024;
     cf->handler = (char*)malloc(strlen(HANDLER) + 1);
 	strcpy(cf->handler, HANDLER);
-	cf->headers = (char*)malloc(strlen(HEADERS) + 1);
-	strcpy(cf->headers, HEADERS);
     cf->httpstatus = (char*)malloc(strlen(HTTP_STATUS) + 1);
 	strcpy(cf->httpstatus, HTTP_STATUS);
     cf->contenttype = (char*)malloc(strlen(HTTP_CONTENTTYPE) + 1);
