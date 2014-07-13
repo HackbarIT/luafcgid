@@ -19,11 +19,11 @@ if [ ${UNAME} = "FreeBSD" ]; then
 fi
 
 # Ubuntu
-if [ ${DISTRO} = "Ubuntu" ]; then
-	echo "Configuring for Ubuntu..."
-	cp -vf Makefile.ubuntu Makefile
-	exit 0
-fi
+#if [ ${DISTRO} = "Ubuntu" ]; then
+#	echo "Configuring for Ubuntu..."
+#	cp -vf Makefile.ubuntu Makefile
+#	exit 0
+#fi
 
 # Debian Linux
 if [ -f /etc/debian_version ]; then
