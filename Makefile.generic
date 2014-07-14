@@ -41,7 +41,7 @@ EXEC = luafcgid
 all: $(SOURCES) $(EXEC)
 
 $(EXEC): $(OBJECTS)
-	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
+	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
 
 clean:
 	rm -f $(OBJECTS) $(EXEC)

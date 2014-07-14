@@ -2,7 +2,6 @@
 
 
 UNAME=`uname`
-DISTRO=`cut -d ' ' -f 1 /etc/issue`
 
 echo "Ident: ${UNAME}"
 
@@ -15,13 +14,6 @@ fi
 if [ ${UNAME} = "FreeBSD" ]; then
 	echo "Configuring for FreeBSD..."
 	cp -vf Makefile.freebsd Makefile
-	exit 0
-fi
-
-# Ubuntu
-if [ ${DISTRO} = "Ubuntu" ]; then
-	echo "Configuring for Ubuntu..."
-	cp -vf Makefile.ubuntu Makefile
 	exit 0
 fi
 
