@@ -16,15 +16,10 @@ INITDIR = /etc/init.d
 # Directory in which to put Lua modules
 PACKAGEPATH = $(PREFIX)/share/lua/5.1
 
-# Lua 5.1 config
-LUAINC = $(PREFIX)/include/lua5.1
-LUALIB = $(PREFIX)/lib
-LLIB = lua5.1
-
 ## LuaJIT2
-#LUAINC = $(PREFIX)/include/luajit-2.0
-#LUALIB = $(PREFIX)/lib
-#LLIB = luajit-5.1
+LUAINC = luajit/src
+LUALIB = luajit/src
+LLIB = luajit
 
 SRCDIR = src
 OBJDIR = obj
@@ -32,7 +27,7 @@ OBJDIR = obj
 # basic setup
 WARN = -Wall -pedantic -ansi -std=c89
 INCS = -I$(PREFIX)/include -I$(LUAINC)
-LIBS = -L$(PREFIX)/lib -L$(LUALIB) -lm -lpthread -lfcgi -l$(LLIB)
+LIBS = -L$(PREFIX)/lib -L$(LUALIB) -lpthread -lfcgi -l$(LLIB) -ldl -lm
 #DEBUG = -ggdb
 OPTS = -O2
 #OPTS = -O3 -march=native
@@ -45,7 +40,7 @@ SOURCES = $(SRCDIR)/main.c $(SRCDIR)/config.c $(SRCDIR)/pool.c $(SRCDIR)/buffer.
 OBJECTS = $(SOURCES:%.c=%.o)
 EXEC = luafcgid
 	
-all: $(SOURCES) $(EXEC)
+all: deps $(SOURCES) $(EXEC)
 
 $(EXEC): $(OBJECTS)
 	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
@@ -60,6 +55,7 @@ install: all
 
 clean:
 	rm -f $(OBJECTS) $(EXEC)
+	$(MAKE) clean -C $(LUALIB)
 
 install-daemon: all
 	cp -f etc/init.d/luafcgid.debian $(INITDIR)/luafcgid
@@ -67,3 +63,8 @@ install-daemon: all
 
 docs:
 	cd ../docs; $(MAKE)
+
+deps:
+	@echo Building LuaJIT...
+	@cp scripts/LJ-make luajit/src/makefile
+	$(MAKE) -C $(LUALIB)
