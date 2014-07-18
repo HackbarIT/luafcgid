@@ -67,4 +67,5 @@ docs:
 deps:
 	@echo Building LuaJIT...
 	@cp scripts/LJ-make luajit/src/makefile
+	@cp scripts/luaconf.h luajit/src/luaconf.h
 	$(MAKE) -C $(LUALIB)
