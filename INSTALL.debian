@@ -1,6 +1,6 @@
 -- Install the build dependencies
 
-# apt-get install build-essential liblua5.1-0-dev libfcgi-dev
+# apt-get install build-essential libfcgi-dev
 
 -- Configure build
 

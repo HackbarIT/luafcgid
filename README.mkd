@@ -44,7 +44,6 @@ Intel Pro+ 1GB ethernet
 
 # Prerequisites
 
-+ Lua 5.1
 + libfcgi 2.4
 + libpthread/libthr/pthreadw32
 

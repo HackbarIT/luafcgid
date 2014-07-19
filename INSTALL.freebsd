@@ -2,13 +2,11 @@
 
 Using packages:
 
-# pkg_add -r lua
 # pkg_add -r fcgi-devkit
 
 Using ports:
 
 # cd /usr/ports/www/fcgi && make install clean
-# cd /usr/ports/lang/lua && make install clean
 
 -- Configure build
 
