@@ -1,7 +1,7 @@
 #ifndef CONFIG_H_INCLUDED
 #define CONFIG_H_INCLUDED
 
-#define LISTEN_PATH ":9000"
+#define LISTEN_PATH "127.0.0.1:9000"
 #define LOGFILE "luafcgid.log"
 #define HTTP_STATUS "200 OK"
 #define HTTP_CONTENTTYPE "text/html"
