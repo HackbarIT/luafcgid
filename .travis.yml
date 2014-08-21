@@ -7,3 +7,8 @@ before_install: sudo apt-get update
 install: sudo apt-get install liblua5.1-0-dev lua5.1 libfcgi-dev
 
 script: ./configure && make
+
+notifications:
+  webhooks:
+    urls:
+      - https://webhooks.gitter.im/e/d242b86a28469396ba0e
